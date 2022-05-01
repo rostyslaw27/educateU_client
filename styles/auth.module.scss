@@ -1,0 +1,19 @@
+.form {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+}

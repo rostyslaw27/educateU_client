@@ -1,29 +1,38 @@
-import { AppBar, Box, IconButton, MenuItem, Toolbar, Typography, Menu, Tooltip, Button, Container } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
-import { AccountCircle } from '@mui/icons-material';
-
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import { AppBar, Box, IconButton, MenuItem, Toolbar, Typography, Menu, Tooltip, Button, Container } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import { useState } from 'react'
+import { AccountCircle } from '@mui/icons-material'
+import { logout } from '../redux/auth/auth.thunks'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../redux/reduxStore'
+import Link from 'next/link'
 
 const AppHeader = () => {
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
+
+  const dispatch = useDispatch<AppDispatch>()
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
+    setAnchorElNav(event.currentTarget)
+  }
+
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+    setAnchorElUser(event.currentTarget)
+  }
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    setAnchorElNav(null)
+  }
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+    setAnchorElUser(null)
+  }
+
+  const handleLogout = () => {
+    dispatch(logout())
+    handleCloseUserMenu()
+  }
 
   return (
     <AppBar position="fixed">
@@ -67,11 +76,16 @@ const AppHeader = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center"><Link href="/courses">
+                  <a>Courses</a>
+                </Link></Typography>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center"><Link href="/courses/create">
+                  <a>Create Course</a>
+                </Link></Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -83,15 +97,16 @@ const AppHeader = () => {
             EducateU
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Link href="/courses/create">
+                <a>Create Course</a>
+              </Link>
+            </Button>
+            <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Link href="/courses">
+                <a>Courses</a>
+              </Link>
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -123,17 +138,15 @@ const AppHeader = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleLogout}>
+                <Typography textAlign="center">Logout</Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
-  );
-};
+  )
+}
 
-export default AppHeader;
+export default AppHeader
