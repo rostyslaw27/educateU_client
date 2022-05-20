@@ -1,0 +1,18 @@
+.inputsContainer {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btnsContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+
+  :last-child {
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(233, 227, 175);
+  margin: 15px 0;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 10%;
+
+  .courseData {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+
+    .title {
+      cursor: pointer;
+    }
+  }
+}

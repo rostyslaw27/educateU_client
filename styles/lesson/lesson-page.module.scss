@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+  .video {
+    width: 700px;
+    height: 400px;
+  }
+
+  .title {
+    font-size: 34px;
+    font-weight: 500;
+  }
+
+  .description {
+    font-size: 22px;
+  }
+}

@@ -3,7 +3,7 @@ import { FC } from 'react'
 import AppHeader from './app-header'
 
 type MainLayoutType = {
-  children: any
+  children: React.ReactNode
   title: string
 }
 
@@ -17,9 +17,7 @@ const MainLayout: FC<MainLayoutType> = ({ children, title = 'Next App' }) => {
         <meta charSet="utf-8" />
       </Head>
       <AppHeader />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       <style jsx>{`
         main {
           margin-top: 60px;

@@ -1,0 +1,21 @@
+.root {
+  border-top: solid 1px #E6E6E6;
+  max-width: 756px;
+  margin: 0 80px 0 120px;
+  padding: 24px 0;
+
+  .answerInfo {
+    display: flex;
+    justify-content: space-between;
+
+    .user {
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+
+  .textContent {
+    padding-top: 12px;
+    word-break: break-all;
+  }
+}

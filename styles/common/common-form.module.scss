@@ -1,7 +1,7 @@
 .form {
+  padding-top: 30px;
   width: 500px;
   margin: 0 auto;
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,7 +11,7 @@
     flex-direction: column;
   }
 
-  .btns {
+  .btnContainer {
     margin-top: 20px;
     display: flex;
     justify-content: space-around;

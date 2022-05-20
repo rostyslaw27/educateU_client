@@ -1,0 +1,22 @@
+.root {
+  margin: 20px 0;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+  padding: 20px;
+
+  .responseInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .email {
+      display: flex;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+
+  .textContent {
+    word-break: break-all;
+  }
+}
